@@ -1,0 +1,397 @@
+kBytes = Optimize[
+  "[1]" |   "[2]" |   "[3]" |   "[4]" |   "[5]" |   "[6]" |   "[7]" |   "[8]" |   "[9]" |  "[10]" |
+ "[11]" |  "[12]" |  "[13]" |  "[14]" |  "[15]" |  "[16]" |  "[17]" |  "[18]" |  "[19]" |  "[20]" |
+ "[21]" |  "[22]" |  "[23]" |  "[24]" |  "[25]" |  "[26]" |  "[27]" |  "[28]" |  "[29]" |  "[30]" |
+ "[31]" |  "[32]" |  "[33]" |  "[34]" |  "[35]" |  "[36]" |  "[37]" |  "[38]" |  "[39]" |  "[40]" |
+ "[41]" |  "[42]" |  "[43]" |  "[44]" |  "[45]" |  "[46]" |  "[47]" |  "[48]" |  "[49]" |  "[50]" |
+ "[51]" |  "[52]" |  "[53]" |  "[54]" |  "[55]" |  "[56]" |  "[57]" |  "[58]" |  "[59]" |  "[60]" |
+ "[61]" |  "[62]" |  "[63]" |  "[64]" |  "[65]" |  "[66]" |  "[67]" |  "[68]" |  "[69]" |  "[70]" |
+ "[71]" |  "[72]" |  "[73]" |  "[74]" |  "[75]" |  "[76]" |  "[77]" |  "[78]" |  "[79]" |  "[80]" |
+ "[81]" |  "[82]" |  "[83]" |  "[84]" |  "[85]" |  "[86]" |  "[87]" |  "[88]" |  "[89]" |  "[90]" |
+ "[91]" |  "[92]" |  "[93]" |  "[94]" |  "[95]" |  "[96]" |  "[97]" |  "[98]" |  "[99]" | "[100]" |
+"[101]" | "[102]" | "[103]" | "[104]" | "[105]" | "[106]" | "[107]" | "[108]" | "[109]" | "[110]" |
+"[111]" | "[112]" | "[113]" | "[114]" | "[115]" | "[116]" | "[117]" | "[118]" | "[119]" | "[120]" |
+"[121]" | "[122]" | "[123]" | "[124]" | "[125]" | "[126]" | "[127]" | "[128]" | "[129]" | "[130]" |
+"[131]" | "[132]" | "[133]" | "[134]" | "[135]" | "[136]" | "[137]" | "[138]" | "[139]" | "[140]" |
+"[141]" | "[142]" | "[143]" | "[144]" | "[145]" | "[146]" | "[147]" | "[148]" | "[149]" | "[150]" |
+"[151]" | "[152]" | "[153]" | "[154]" | "[155]" | "[156]" | "[157]" | "[158]" | "[159]" | "[160]" |
+"[161]" | "[162]" | "[163]" | "[164]" | "[165]" | "[166]" | "[167]" | "[168]" | "[169]" | "[170]" |
+"[171]" | "[172]" | "[173]" | "[174]" | "[175]" | "[176]" | "[177]" | "[178]" | "[179]" | "[180]" |
+"[181]" | "[182]" | "[183]" | "[184]" | "[185]" | "[186]" | "[187]" | "[188]" | "[189]" | "[190]" |
+"[191]" | "[192]" | "[193]" | "[194]" | "[195]" | "[196]" | "[197]" | "[198]" | "[199]" | "[200]" |
+"[201]" | "[202]" | "[203]" | "[204]" | "[205]" | "[206]" | "[207]" | "[208]" | "[209]" | "[210]" |
+"[211]" | "[212]" | "[213]" | "[214]" | "[215]" | "[216]" | "[217]" | "[218]" | "[219]" | "[220]" |
+"[221]" | "[222]" | "[223]" | "[224]" | "[225]" | "[226]" | "[227]" | "[228]" | "[229]" | "[230]" |
+"[231]" | "[232]" | "[233]" | "[234]" | "[235]" | "[236]" | "[237]" | "[238]" | "[239]" | "[240]" |
+"[241]" | "[242]" | "[243]" | "[244]" | "[245]" | "[246]" | "[247]" | "[248]" | "[249]" | "[250]" |
+"[251]" | "[252]" | "[253]" | "[254]" | "[255]"];
+	
+sigma = kBytes;
+	
+sigma_star = sigma*;
+	
+##Consonant Mappings/Groupings & Series Assimilation, Bantoc and Sound Change Rules 
+##(Orthographic words to Phonemic Transcription)
+
+#plosive consonants in the first series
+PLO_FIRST = ("ក" : "k") | ("ច" : "c") | ("ដ" : "ɗ") | ("ត" : "t") | ("ប" : "ɓ") | ("អ" : "ʔ");
+
+#plosive consonants in the second series	
+PLO_SECOND = ("គ" : "k") | ("ជ" : "c") | ("ឌ" : "ɗ") | ("ទ" : "t") | ("ព" : "p");
+
+#asprirated plosive consonants in the first series
+ASP_PLO_FIRST = ("ខ" : "kʰ") | ("ឆ" : "cʰ") | ("ឋ" : "tʰ") | ("ថ" : "tʰ") | ("ផ" : "pʰ");
+
+#asprirated plosive consonants in the second series
+ASP_PLO_SECOND = ("ឃ" : "kʰ") | ("ឈ" : "cʰ") | ("ឍ" : "tʰ") | ("ធ" : "tʰ") | ("ភ" : "pʰ");
+
+#fricative consonants in the first series
+FRI_FIRST_SO = ("ស" : "s");
+FRI_FIRST_HO = ("ហ" : "h");
+FRI_FIRST = FRI_FIRST_SO | FRI_FIRST_HO;
+
+#nasal in the first series	
+NAS_FIRST = ("ណ" : "n");
+#nasals in the second series
+NAS_SECOND = ("ង" : "ŋ") | ("ញ" : "ɲ") | ("ន" : "n") | ("ម" : "m");
+#all nasals
+NAS_ANY = NAS_FIRST | NAS_SECOND;
+
+#approximants in the first series
+APP_FIRST = ("ឡ" : "l");
+#approximants in the second series
+C_RO = ("រ" : "r"); #this consonant plays a role in disyllable structure (disyllable type 2)
+APP_NO_RO = ("យ" : "j") | ("ល" : "l") | ("វ" : "w");
+APP_SECOND = C_RO | APP_NO_RO;
+
+#modified consonants using  ៉ --change certain second series consonant to first series
+MOD_C_FIRST = ("ង៉" : "ŋ") | ("ញ៉" : "ɲ")	| ("ម៉" : "m") | ("យ៉" : "j") | ("រ៉" : "r")	| ("វ៉" : "w") | ("ប៉" : "p");
+#modified consonants using ៊ --change certain first series consonant to second series
+MOD_C_SECOND = ("ស៊" : "s") | ("ហ៊" : "h") | ("ប៊" : "ɓ") | ("អ៊" : "ʔ");
+
+#all obstruents
+OBS_FIRST = PLO_FIRST | ASP_PLO_FIRST;
+OBS_SECOND = PLO_SECOND | ASP_PLO_SECOND;
+
+#all sonorants
+SON_FIRST = NAS_FIRST | APP_FIRST;
+SON_SECOND = NAS_SECOND | APP_SECOND;
+
+#all first series consonants
+C_FIRST = OBS_FIRST | FRI_FIRST | SON_FIRST | MOD_C_FIRST;
+
+#all second series consonants
+C_SECOND = OBS_SECOND | SON_SECOND | MOD_C_SECOND;
+
+#all consonants
+C_ANY = C_FIRST | C_SECOND;
+
+#Inherent vowel in the first series
+IV_FIRST = ("" : "ɑɑ");
+#Inherent vowel in the second series
+IV_SECOND = ("" : "ɔɔ");
+
+#dependent vowels in the first series
+NIKAHIT_FIRST = ("ំ" : "ɑm");
+REAHMUK_FIRST = ("ះ" : "ah");
+DV_WITHOUT_NIKAHIT_REAHMUK_FIRST = 
+	("ា" : "aa")
+	| ("ិ" : "eʔ")
+	| ("ី" : "əj")
+	| ("ឹ" : "əʔ")
+	| ("ឺ" : "əə")
+	| ("ុ" : "oʔ")
+	| ("ូ" : "oo")
+	| ("ួ" : "uə")
+	| ("ើ" : "aə")
+	| ("ឿ" : "ɨə")
+	| ("ៀ" : "iə")
+	| ("េ" : "ee")
+	| ("ែ" : "ae")
+	| ("ៃ" : "aj")
+	| ("ោ" : "ao")
+	| ("ៅ" : "aw")
+	| ("ុំ" : "om")
+	| ("ាំ" : "am")
+	| ("ុះ" : "oh")
+	| ("េះ" : "eh")
+	| ("ោះ" : "ɑh")
+	#extended vowel, a combination of a vowel with REAHMUK.
+	| ("ាះ" : "aah")	#as in អាះ អ្ហាះ
+	| ("ិះ" : "eh")	#as in ក្រិះ តិះ
+	| ("ីះ" : "")	#not exist in the dataset
+	| ("ឹះ" : "əh")	#as in ផ្អឹះ ប្រឹះ ឆ្កឹះ ក្ដឹះ កឹះ
+	| ("ឺះ" : "əəh")	#as in ច្រឺះ បឺះ វ៉ឺះ អឺះ
+	| ("ូះ" : "ooh")	#as in អូះ 
+	| ("ើះ" : "aəh")	#as in ផ្អើះ យ៉ើះ 
+	| ("ៀះ" : "iəh")	#not exist in the dataset 
+	| ("ែះ" : "aeh")	#as in កែះ ក្រែះ ខ្វែះ ច្រែះ ត្រែះ ប៉ែះ ប្រែះ ផែះ ហែះ
+	;
+DV_FIRST = NIKAHIT_FIRST | REAHMUK_FIRST | DV_WITHOUT_NIKAHIT_REAHMUK_FIRST;	
+
+#dependent vowels in the second series
+NIKAHIT_SECOND = ("ំ" : "um");
+REAHMUK_SECOND = ("ះ" : "eah");
+DV_WITHOUT_NIKAHIT_REAHMUK_SECOND = 
+	("ា" : "ie")
+	| ("ិ" : "iʔ")
+	| ("ី" : "ii")
+	| ("ឹ" : "ɨʔ")
+	| ("ឺ" : "ɨɨ")
+	| ("ុ" : "uʔ")
+	| ("ូ" : "uu")
+	| ("ួ" : "uə")
+	| ("ើ" : "əə")
+	| ("ឿ" : "ɨə")
+	| ("ៀ" : "iə")
+	| ("េ" : "ee")
+	| ("ែ" : "ɛɛ")
+	| ("ៃ" : "ej")
+	| ("ោ" : "oo")
+	| ("ៅ" : "ɨw")
+	| ("ុំ" : "um")
+	| ("ាំ" : "oam")
+	| ("ុះ" : "uh")
+	| ("េះ" : "eh")
+	| ("ោះ" : "uəh")
+	#extended vowel, a combination of a vowel with REAHMUK.
+	| ("ាះ" : "ieh")		#as in គ្រាះ 
+	| ("ិះ" : "ih")		#as in ខ្ទិះ ជិះ ជ្រិះ ប៊ិះ ម្ហ៊ិះ ហ៊ិះ 
+	| ("ីះ" : "ih")		#as in យីះ
+	| ("ឹះ" : "ɨh")		#as in ឆ្ពឹះ ព្អឹះ ភ្លឹះ មឹះ រឹះ វឹះ ស្គឹះ ហ៊ឹះ អ៊ឹះ
+	| ("ឺះ" : "ɨɨh")		#as in អ៊ឺះ ព្រឺះ ទឺះ
+	| ("ូះ" : "uuh")		#as in ភូះ 
+	| ("ើះ" : "əəh")	#on exist in the dataset 
+	| ("ៀះ" : "iəh")	#as in វៀះ
+	| ("ែះ" : "ɛh")		#as in ហ៊ែះ ស្ទែះ ស្ពែះ ស្រែះ ល្មែះ រែះ ទែះ ជ្រែះ ជែះ
+	;
+DV_SECOND = NIKAHIT_SECOND | REAHMUK_SECOND | DV_WITHOUT_NIKAHIT_REAHMUK_SECOND;
+
+#any first series vowels
+V_ANY_FIRST = IV_FIRST | DV_FIRST;
+#any second series vowels
+V_ANY_SECOND = IV_SECOND | DV_SECOND;
+#any vowel regardless of their series
+V_ANY = V_ANY_FIRST | V_ANY_SECOND;
+
+#Triisap (mapped to nothing)
+D_TRI = ("៊" : "");
+
+#Muusikatoan (mapped to nothing)
+D_MUS = ("៉" : "");
+
+#Bantoc (mapped to a single quote, served as a placeholder for BANTOC, if not using this, it's confusing to tell which words have BANTOC and which do not have BANTOC in the orthograhy)
+D_BAN = ("់" : "'");
+
+#the subscript (mapped to nothing)
+SUB_SHIFTER = ("្" : "");
+
+#initial consonant clusters in the first series
+C_INI_CLUSTER_FIRST = 
+	#both consonants are in the first series
+	C_FIRST SUB_SHIFTER C_FIRST
+	#the combination of the FIRST and the SECOND series
+	| NAS_SECOND SUB_SHIFTER OBS_FIRST
+	| FRI_FIRST SUB_SHIFTER SON_SECOND
+	| OBS_FIRST SUB_SHIFTER SON_SECOND
+	| NAS_SECOND SUB_SHIFTER FRI_FIRST
+	| APP_SECOND SUB_SHIFTER OBS_FIRST
+	| APP_SECOND SUB_SHIFTER FRI_FIRST
+	;
+#initial consonant clusters in the second series
+C_INI_CLUSTER_SECOND = 
+	#both consonants are in the second series
+	C_SECOND SUB_SHIFTER C_SECOND
+	#the combination of the first and the second series
+	| ASP_PLO_SECOND SUB_SHIFTER FRI_FIRST
+	| ASP_PLO_SECOND SUB_SHIFTER APP_SECOND #to account for ធ្យាន សន្ធ្យា
+	| ASP_PLO_FIRST SUB_SHIFTER PLO_SECOND
+	| FRI_FIRST SUB_SHIFTER PLO_SECOND
+	| OBS_FIRST SUB_SHIFTER OBS_SECOND
+	;
+	
+#any initial (single) consonants and consonant clusters in the first series
+C_INI_FIRST = C_FIRST 
+	| C_INI_CLUSTER_FIRST 
+	| (C_INI_CLUSTER_SECOND D_MUS)
+	| C_ANY SUB_SHIFTER MOD_C_FIRST #to account for ស្ប៉
+	;
+#any initial (single) consonants and consonant clusters second series
+C_INI_SECOND = C_SECOND 
+	| C_INI_CLUSTER_SECOND 
+	| (C_INI_CLUSTER_FIRST D_TRI)
+	| C_ANY SUB_SHIFTER MOD_C_SECOND #សស្រ៊ឹប still doesn't work!!!
+	;
+
+
+
+#Monosyllable type1 --simple C(D1)(V)(F)(D2) orthographic syllable structure (initial single consonants)
+#Monosyllable type2 --complex CS(D1)(V)(F)(D2) orthographic syllable structure (initial consonant clusters)
+#C: consonant, D1: series shifter "៊/៉", V: vowel, F: final consonant, D2: bantoc, S: subscript "coeng+C"
+MONOSYL_IV_FIRST = C_INI_FIRST IV_FIRST C_ANY? D_BAN?;
+MONOSYL_DV_FIRST = C_INI_FIRST DV_FIRST C_ANY? D_BAN?;
+MONOSYL_IV_SECOND = C_INI_SECOND IV_SECOND C_ANY? D_BAN?;
+MONOSYL_DV_SECOND = C_INI_SECOND DV_SECOND C_ANY? D_BAN?;
+MONOSYL_FIRST = (MONOSYL_IV_FIRST <-1>) | MONOSYL_DV_FIRST;
+MONOSYL_SECOND = (MONOSYL_IV_SECOND <-1>) | MONOSYL_DV_SECOND;
+#any monosyllable
+MONOSYL_ANY = MONOSYL_FIRST | MONOSYL_SECOND;
+
+#The glottal plosive is deleted before another consonant at the end of a string
+DEL_GLOTTAL = CDRewrite[("ʔ" : ""), "", Project[C_ANY, 'output']"[EOS]", sigma_star];
+
+
+
+#Disyllable Rules
+#for the the series assimilation in disyllable	
+SERIES_ASSIMILATION = (NAS_SECOND | APP_SECOND |  NAS_FIRST) V_ANY_FIRST C_ANY? D_BAN?;
+SERIES_ASSIMILATION_PRIME = FRI_FIRST_HO V_ANY_SECOND C_ANY? D_BAN?; #ព្រហាម
+
+SERIES_DISSIMILATION = 
+	(OBS_SECOND | MOD_C_SECOND | C_INI_CLUSTER_SECOND) (SUB_SHIFTER C_RO)? V_ANY_SECOND C_ANY? D_BAN?;	
+SERIES_DISSIMILATION_PRIME = 
+	(OBS_FIRST | FRI_FIRST | MOD_C_FIRST | C_INI_CLUSTER_FIRST | NAS_FIRST | APP_FIRST) V_ANY_FIRST C_ANY? D_BAN?;
+
+#Syllable break
+SYL_BREAK = ("" : "\.");
+
+#Disyllable in FIRST SERIES
+DISYL_MINOR_FIRST_TYPE1 = C_FIRST IV_FIRST NAS_ANY SUB_SHIFTER;
+DISYL_MINOR_FIRST_TYPE2 = (FRI_FIRST | PLO_FIRST) SUB_SHIFTER C_RO IV_FIRST;
+DISYL_MINOR_FIRST_TYPE3 = (C_FIRST | MOD_C_FIRST) IV_FIRST;
+DISYL_MINOR_FIRST_TYPE4 = C_FIRST NIKAHIT_FIRST;
+MINOR_SYL_FIRST = 
+	(DISYL_MINOR_FIRST_TYPE1 <-1>)	#Disyllable Type 1 in FIRST series (CN្MS)
+	| DISYL_MINOR_FIRST_TYPE2			#Disyllable Type 2 in FIRST series (C្រ.MS)	#exception: ស្រម៉ (just one)
+	| DISYL_MINOR_FIRST_TYPE3			#Disyllable Type 3 in FIRST series (C(៉).MS) --the () denotes optional 
+	| DISYL_MINOR_FIRST_TYPE4			#Disyllable Type 4 in FIRST series (Cំ.MS)
+	;
+MAJOR_SYL_FIRST = MONOSYL_FIRST
+	| SERIES_DISSIMILATION 			#as in ប្រគល់
+	| SERIES_ASSIMILATION				#as in សម្រាក, ប្រញាប់, ក្រមា
+	;
+DISYL_FIRST = MINOR_SYL_FIRST SYL_BREAK MAJOR_SYL_FIRST;
+
+#Disyllable in SECOND SERIES
+DISYL_MINOR_SECOND_TYPE1 = C_SECOND IV_SECOND NAS_ANY SUB_SHIFTER;
+DISYL_MINOR_SECOND_TYPE2 = PLO_SECOND SUB_SHIFTER C_RO IV_SECOND;
+DISYL_MINOR_SECOND_TYPE3 = (C_SECOND | MOD_C_SECOND) IV_SECOND;
+DISYL_MINOR_SECOND_TYPE4 = C_SECOND NIKAHIT_SECOND;
+MINOR_SYL_SECOND = 
+	(DISYL_MINOR_SECOND_TYPE1 <-1>)	#Disyllable Type 1 in SECOND series (CN្MS). 
+	#It's weighed to generate ពង្រ as /puŋ.rɔɔ/ not /pɔ.ŋrɔɔ/. The nasal has to be the coda of the minor syllable, not the onset of the major syllable.
+	| DISYL_MINOR_SECOND_TYPE2	#Disyllable Type 2 in SECOND series (C្រ.MS) 
+	| DISYL_MINOR_SECOND_TYPE3	#Disyllable Type 3 in SECOND series (C(៉).MS) --the () denotes optional 
+	| DISYL_MINOR_SECOND_TYPE4	#Disyllable Type 4 in SECOND series (Cំ.MS) #exception: កំរ ចំណ ដំប តំណ សំណ រំហ លំហ លំអ (8 words only).
+	;
+MAJOR_SYL_SECOND = MONOSYL_SECOND
+	| (SERIES_DISSIMILATION_PRIME <-1>)	#របស់, រសាយ, (រហូត goes again ព្រហាម in terms of series assimilation)
+	| SERIES_ASSIMILATION_PRIME			#as in សង្គ្រោះ, សម្រាប់
+	;
+DISYL_SECOND = MINOR_SYL_SECOND SYL_BREAK MAJOR_SYL_SECOND;
+
+DISYL_ANY = DISYL_FIRST | DISYL_SECOND;
+
+SYL_ANY = (MONOSYL_ANY <-1>) | DISYL_ANY; #weight on MONOSYL_ANY is to prevent monosylable be transcribed as a disyllable (i.e. កក should be /kɑɑk/, not /kɑ.kɑɑ/. because it's is a monosyllabic word)
+
+
+
+#BANTOC RULES
+#Final consonant groups which determine the shortening/changing of the IV and DV
+C_FINAL1 = "k'" | "ŋ'" | "c'" | "ɲ'" | "t'" | "n'" | "l'" | "s'" | "ɓ'";
+C_FINAL2 = "ŋ'" | "c'" | "ɲ'" | "t'" | "n'" | "l'" | "ɓ'";
+C_FINAL3 = "k'" | "s'";
+C_FINAL4= "k'" | "ŋ'" | "c'" | "ɲ'";
+C_FINAL5 = "t'" | "n'" | "l'" | "s'" | "ɓ'";
+
+#Final consonants with Bantoc for using with First Series Inherent/Depedent Vowel (/ɑɑ/ ​ is shorted to  /ɑ/ ;  /aa/  is shorten to  /a/)
+BANTOC_IV_DV_FIRST_SHORT = ("ɑɑ" : "ɑ") | ("aa" : "a");
+BANTOC_IV_DV_FIRST = CDRewrite[BANTOC_IV_DV_FIRST_SHORT, "", C_FINAL1 "[EOS]", sigma_star];
+
+#7 final consonants with Bantoc for using with Second Series Inherent Vowel (/ɔɔ/  is changed to  /u/ )
+BANTOC_IV_SECOND = CDRewrite[("ɔɔ" : "u"), "", C_FINAL2 "[EOS]", sigma_star];
+
+#2 final consonants with Bantoc for using with Second Series Inherent Vowel (/ɔɔ/  is changed to  /uə/ )
+BANTOC_IV_SECOND_PRIME = CDRewrite[("ɔɔ" : "uə"), "", C_FINAL3 "[EOS]", sigma_star];
+
+#4 final consonants with Bantoc for using with Second Series Dependent Vowel (/ie/  is changed to  /ea/ )
+BANTOC_DV_SECOND = CDRewrite[("ie" : "ea"), "", C_FINAL4 "[EOS]", sigma_star];
+
+#5 final cosonants with Bantoc for using with Series Dependent Vowel (/ie/  is changed to  /oa/ )
+BANTOC_DV_SECOND_PRIME = CDRewrite[("ie" : "oa"), "", C_FINAL5 "[EOS]", sigma_star];
+BANTOC_RULES = BANTOC_IV_DV_FIRST 
+	@ BANTOC_IV_SECOND
+	@ BANTOC_IV_SECOND_PRIME
+	@ BANTOC_DV_SECOND
+	@ BANTOC_DV_SECOND_PRIME
+	;
+#Delete the ' from the output
+DEL_BANTOC = CDRewrite[("'" : ""), "", "[EOS]", sigma_star];
+
+
+
+##SOUND CHANGE RULES
+#Vowel shortening in the the minor syllable of a disyllabic word
+SHORT_IV = ("ɑɑ" : "ɑ") | ("ɔɔ" : "ɔ");
+SHORT_IV_CONTEXT = "\." | "m\." | "n\." | "ɲ\." | "ŋ\.";
+SHORTENING_IV_MINOR_SYL = CDRewrite[SHORT_IV, "", SHORT_IV_CONTEXT, sigma_star] 
+	@ CDRewrite[("ɔ" : "u"), "",("m\." | "n\." | "ɲ\." | "ŋ\."), sigma_star];
+	#to account for ពញ្ញាក់, ពន្លឹក, ជម្លោះ, ពង្រឹង (It has to come after​ this previous rule.)
+
+#Final devoicing: Voice Implosives become voiceless in the syllable final position.
+FIN_DEVOICING_b_d = ("ɓ" : "p") | ("ɗ" : "t");
+FINAL_DEVOICING = CDRewrite[FIN_DEVOICING_b_d, "", "[EOS]", sigma_star];
+
+#Initial devoicing: voiced implosives become voiceless in the initial position before another consonant.
+INI_DEVOICING_b_d = ("ɓ" : "p") | ("ɗ" : "t");
+INITIAL_DEVOICING = CDRewrite[INI_DEVOICING_b_d, ("[BOS]" | "\."), Project[C_ANY, 'output'], sigma_star];
+
+#Fricative weakening: alveolar fricative becomes glottal fricative at the syllable final position.
+CHANGE_s = CDRewrite[("s" : "h"), "", "[EOS]", sigma_star];
+
+#Trill deletion: alveolar trill got deleted at the syllable and word final position.
+DEL_r = CDRewrite[("r" : ""), "", "[EOS]", sigma_star];
+
+#Nasal deletion: a nasal got deleted before another nasal at the syllable final position in the first series, and there is an extra step for a word begin with second series initial consonant. (in ទាំង toamŋ, since am > a then ទាំង toaŋ which is wrong, the next step is to change the oa to ea before ŋ, the ultimate output is 'teang', as expected.
+DEL_m = CDRewrite[("am" : "a"), "", "ŋ[EOS]", sigma_star] @ CDRewrite[("oa" : "ea"), "", "ŋ[EOS]", sigma_star];
+#Vowel backing: open and open-mid front unrounded vowel becomes central open and open-mid central unrounded vowel in closed syllable.
+V_BACKING_i_e = ("i" : "ɨ") | ("e" : "ə");
+FIN_C = "p" | "t" | "c" | "k" | "m" | "n" | "ɲ" | "ŋ" | "l" | "w"; #note the absent of 'h', if included, ជិះ កិះ would be transduced as /cɨh/ and /kəh/ respectively. by xcluding 'h', we have /cih/ and /keh/ which is expected and correct.
+V_BACKING = CDRewrite[V_BACKING_i_e, Project[C_ANY, 'output'], FIN_C"[EOS]", sigma_star];
+
+#Removing aspiration 'ʰ' in consonant clusters
+DEL_h = CDRewrite[("ʰ" : ""), ("[BOS]" | "\.")("p" | "t" | "c" | "k"), ("m" | "n" | "ɲ" | "ŋ" | "p" | "t" | "c" | "k" | "l" | "s" | "ɓ" | "ɗ" | "r" | "ʔ" | "j" | "w"), sigma_star];
+
+DEVOI_RULES = FINAL_DEVOICING @ INITIAL_DEVOICING;
+DEL_RULES = DEL_r @ DEL_m @ DEL_h;
+
+#All sound change rules	
+SOUND_CHANGE = DEVOI_RULES	
+	@ DEL_RULES
+	@ V_BACKING
+	@ CHANGE_s
+	@ SHORTENING_IV_MINOR_SYL
+	; 	
+
+
+
+WORD = SYL_ANY
+	@ BANTOC_RULES
+	@ DEL_BANTOC
+	@ DEL_GLOTTAL
+	@ SOUND_CHANGE
+	;
+
+PHRASE = WORD (" " WORD)*;
+export TO_PHONEMIC = Optimize[PHRASE];
+
+
+#For testing without having any of the three main rules (Series Assimilation, Bantoc and Sound Change Rules) applied, just the character mapping and the orthographic syllable strcuture placeholders
+
+# MONOSYL = C_ANY SUB_SHIFTER? C_ANY? (D_MUS | D_TRI)? V_ANY? C_ANY? D_BAN?;
+# DISYL = C_ANY SUB_SHIFTER? C_ANY SUB_SHIFTER? C_ANY? (D_MUS | D_TRI)? V_ANY? C_ANY? D_BAN?
+# 	| C_ANY (NIKAHIT_FIRST | NIKAHIT_SECOND)? C_ANY SUB_SHIFTER? C_ANY? (D_MUS | D_TRI)? V_ANY? C_ANY? D_BAN?
+# 	| C_ANY (D_MUS | D_TRI)? C_ANY? SUB_SHIFTER? V_ANY? C_ANY? D_BAN?
+# 	;
+# WORD_RAW = MONOSYL | DISYL;
+# export PHONEMIC = Optimize[WORD_RAW];
