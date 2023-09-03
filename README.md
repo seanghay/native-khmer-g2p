@@ -17,4 +17,4 @@ python khmer_rewriter.py
 
 ### References
 
-- [automatic-phonemic-and-phonetic-transcription](https://gitlab.com/mkrlab/automatic-phonemic-and-phonetic-transcription) by @MakaraSok
+- [automatic-phonemic-and-phonetic-transcription](https://gitlab.com/mkrlab/automatic-phonemic-and-phonetic-transcription) by [@MakaraSok](https://github.com/MakaraSok)
