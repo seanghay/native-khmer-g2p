@@ -14,7 +14,16 @@ Run
 python khmer_rewriter.py
 ```
 
+### Compiling with Thrax
 
+ ```shell
+# Install on macOS
+brew install thrax
+
+# Compile .grm file to get .far
+./compile.sh
+```
+ 
 ### References
 
 - [automatic-phonemic-and-phonetic-transcription](https://gitlab.com/mkrlab/automatic-phonemic-and-phonetic-transcription) by [@MakaraSok](https://github.com/MakaraSok)
